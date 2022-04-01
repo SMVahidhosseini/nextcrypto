@@ -1,16 +1,1075 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+/* base styles */
 * {
-  box-sizing: border-box;
+    margin: 0;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+.header{
+    background-color: #202020;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 0.1em solid lightgray;
+    box-shadow:
+    0 10px 10px -6px lightgray;
+}
+.headertopdiv{
+    width: 100%;
+    padding-left: 1em;
+    color: #202020;
+    max-height: 40px;
+    display: block;
+    width: 12em;
+    z-index: 3;
+    position: absolute;
+    background-color: #202020;
+}
+.headerh1{
+    display: block;
+    color: #E65100;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+.htcomponents{
+    display: flex;
+    align-items: center;
+    flex-direction: row, column;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 0.8em;
+    margin-bottom: 1em;
+    min-height: 3.3em;
+    border-bottom: 0.1em solid lightgray;
+    box-shadow:
+    0 7px 7px -6px lightgray;
+}
+.htdivperpage{
+    display: flex;
+    flex-direction: row, column;
+    width: 100%;
+    margin-left: 2%;
+    text-align: left;
+}
+.htformperpage{
+    height: auto;
+    flex-direction: row, column;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+.htlabelperpage{
+    margin-top: 0.7em;
+    flex-grow: 1;
+    color: #E65100;
+    font-weight: bold;
+}
+.htinputperpage{
+    height: 1.5em;
+    line-height: 1.5em;
+    width: 3.5em;
+    font-weight: bold;
+    color: #555;
+    background-color: #d3d3d3;
+    border-radius: 0.6em;
+    border: none;
+    font-size: 1em;
+    padding-left: 0.6em;
+}
+.htsubmitperpage{
+    color: #E65100;
+    background-color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    margin-left: 0.3em;
+}
+.footer{
+    background: lightgray;
+    padding: 2.0em;
+    bottom: 0;
+    margin-bottom: 0;
+    z-index: 4;
+    position: relative;
+    min-height: 2em;
+}
+.theadermain{
+    min-height: 2em;
+    line-height: 2em;
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: row, column;
+    font-weight: bold;
+    border-radius: 1.5em;
+    color: black;
+    background-color: #d3d3d3;
+    padding: 0.2em;
+    text-align: center;
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    z-index: 1;
+}
+/*Div onec for adding padding to the left only for 1st column*/
+.theaderonec{
+    padding-left: 1em;
+    text-align: left;
+    display: inline;
+    flex-grow: 1;
+    width: 4%;
+    margin-top: 0.2em;
+    cursor: pointer;
+}
+.theaderactiveonec{
+    color: #E65100;
+    padding-left: 1em;
+    text-align: left;
+    display: inline;
+    flex-grow: 1;
+    width: 4%;
+    margin-top: 0.2em;
+    cursor: pointer;
+}
+.theaderafteronec{
+    text-align: left;
+    display: inline;
+    flex-grow: 1;
+    width: 11.5%;
+    margin-top: 0.2em;
+    cursor: pointer;
+}
+.theaderactiveafteronec{
+    color: #E65100;
+    text-align: left;
+    display: inline;
+    flex-grow: 1;
+    width: 11.5%;
+    margin-top: 0.2em;
+    cursor: pointer;
+}
+.theadertable{
+    text-align: left;
+    display: inline;
+    flex-grow: 1;
+    width: 11.5%;
+    min-width: 90px;
+    margin-top: 0.2em;
+}
+.theaderpercentage{
+    width: 20%;
+    text-align: center;
+    display: flex;
+    flex-direction: row, column;
+    padding-right: 7em;
+}
+.theaderpercentcell{
+    text-align: center;
+    display: inline;
+    flex-grow: 1;
+    width: 6%;
+    min-width: 55px;
+    border-radius: 1.5em;
+    margin: 0.2em;
+    cursor: pointer;
+}
+.theaderactivepercentcell{
+    color: #E65100;
+    text-align: center;
+    display: inline;
+    flex-grow: 1;
+    width: 6%;
+    min-width: 55px;
+    border-radius: 1.5em;
+    margin: 0.2em;
+    cursor: pointer;
+}
+.maincoins{
+    min-height: 300px;
+}
+.tcoinsmain{
+    font-size: 0.8em;
+    min-height: 2em;
+    line-height: 2.5em;
+    display: flex;
+    flex-direction: row, column;
+    color: black;
+    padding: 0.2em;
+    text-align: center;
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    border-bottom: 0.1em solid lightgray;
+    border-radius: 1.5em;
+    z-index: 2;
+    position: relative;
+}
+  /*Div onec for adding padding to the left only for 1st column*/
+.tcoinsonec{
+    padding-left: 1em;
+    text-align: left;
+    display: inline;
+    flex-grow: 1;
+    width: 4%;
+    cursor: pointer;
+}
+.tcoinsafteronec{
+    text-align: left;
+    display: inline;
+    flex-grow: 1;
+    width: 11.5%;
+}
+.tcoinstable{
+    text-align: left;
+    display: inline;
+    flex-grow: 1;
+    width: 11.5%;
+    min-width: 90px;
+}
+.tcoinsbreaked_logo{
+    font-size: 1.2em;
+    height: 0.7em;
+    line-height: 1em;
+    vertical-align: middle;
+}
+.tcoinsbreaked_symbol{
+    font-size: 1em;
+    height: 1em;
+    line-height: 0.8em;
+    font-weight: bold;
+}
+.tcoinsbreaked_name{
+    font-size: 0.8em;
+    height: auto;
+    line-height: 0.8em;
+}
+.tcoinspercentage{
+    width: 20%;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row, column;
+    padding-right: 7em;
+}
+.tcoinspositive {
+    text-align: center;
+    display: inline;
+    flex-grow: 1;
+    width: 6%;
+    min-width: 55px;
+    background-color: #37fd12;
+    color: black;
+    border-radius: 1.5em;
+    margin: 0.2em;
+    display: inline;
+    flex-grow: 1;
+}
+.tcoinsnegative {
+    text-align: center;
+    display: inline;
+    flex-grow: 1;
+    width: 6%;
+    min-width: 55px;
+    background-color: #fc0003;
+    color: white;
+    border-radius: 1.5em;
+    margin: 0.2em;
+    display: inline;
+    flex-grow: 1;
+}
+.tabs{
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    height: 2em;
+    z-index: 3;
+    position: relative;
+}
+.tabs2{
+    margin-top: 0.7em;
+    display: flex;
+    height: 2em;
+    float: right;
+    z-index: 3;
+    position: relative;
+    text-align: right;
+}
+.tabsul{
+    width: 66%;
+    text-align: right;
+    padding-right: 13%;
+}
+.tabsli{
+    display: inline-block;
+    margin: 0 0.2em;
+    cursor: pointer;
+}
+.tabsdiv{
+    padding: 0.4em 0.8em;
+    font-weight: bold;
+    color: #E65100;
+    border-radius: 0.5em;
+}
+.tabsactive{
+    padding: 0.4em 0.8em;
+    background-color: #E65100;
+    color: #202020;
+    font-weight: bold;
+    border-radius: 0.5em;
+}
+.coinbody{
+    margin-top: 0.7em;
+    background: white;
+    height: auto;
+    min-height: 26.41em;
+    z-index: 2;
+    position: relative;
+}
+.coindivmaincoins{
+    min-height: 300px;
+}
+.coindivperpage{
+    margin-top:  0.7em;
+    flex-direction: row, column;
+    width: 100%;
+    text-align: center;
+}
+.coinformperpage{
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    display: inline-block;
+    padding-top: 0.4em;
+    width: 50%;
+    height: auto;
+    flex-direction: row, column;
+    border-radius: 0.4em;
+}
+.coinlabelperpage{
+    font-size: 0.8em;
+    display: inline-block;
+    flex-grow: 1;
+    color: #202020;
+    font-weight: bold;
+    margin: 0.1em;
+}
+.coininputperpage{
+    height: 1.5em;
+    width: 4em;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border-radius: 0.6em;
+    margin: 0.1em;
+    border-color: gray;
+}
+.coinsubmitperpage{
+    color: #202020;
+    background-color: gray;
+    font-size: 1.2em;
+    padding: 0;
+    padding-bottom: 0.1em;
+    font-weight: bold;
+    border-radius: 0.4em;
+    border-color: lightgray;
+    cursor: pointer;
+    margin: 0.1em;
+    min-width: 1.2em;
+    margin-right: 0.5em;
+}
+.coinhidefirstpagetag{
+    display: none;
+    visibility: hidden;
+}
+.coinnumberperpage{
+    color: #202020;
+    background-color: gray;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 0.4em;
+    border-color: lightgray;
+    cursor: pointer;
+    margin: 0.1em;
+    min-height: 2.3em;
+}
+.cointhreepoint{
+    display: inline-block;
+    margin: 0.1em;
+}
+.coinactivenumber{
+    color: #202020;
+    background-color: #E65100;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 0.4em;
+    border-color: #E65100;
+    cursor: pointer;
+    margin: 0.1em;
+    min-height: 2.3em;
+}
+a, u {
+    text-decoration: none;
+}
+.searchmain{
+    text-align: right;
+    width: 33%;
+    display: table-cell;
+    margin-right: 1em;
+    line-height: 2em;
+}
+.searchinner{
+    float: right;
+    text-align: right;
+}
+.searchinner2{
+    float: right;
+    text-align: right;
+    line-height: 2em;
+    margin-top: 0.4em;
+    margin-right: 1em;
+}
+.searchbar{
+    background-color: lightgray;
+    border-radius: 0.7em;
+    border-color: gray;
+    width: auto;
+    min-width: 14em;
+    color: #202020;
+    margin-bottom: 0.1em;
+    border: none;
+    height: 2.3em;
+    outline: none;
+    padding-left: 0.7em;
+}
+.searchbar:focus{
+    background-color: lightgray;
+    border-radius: 0.7em;
+    border-color: gray;
+    width: auto;
+    min-width: 14em;
+    color: #202020;
+    margin-bottom: 0.1em;
+    border: none;
+    height: 2.3em;
+    outline: none;
+    padding-left: 0.7em;
+}
+.searchlist{
+    background-color: #f5f5f5;
+    max-height: 20em;
+    width: auto;
+    max-width: 17.2em;
+    overflow-y: auto;
+    border-radius: 0.4em;
+    font-size: 1em;
+    box-shadow:
+    0.2em 0.2em 0.3em 0.1em #202020;
+    text-align: left;
+    z-index: 3;
+    position: relative;
+}
+.searchlist2{
+    background-color: #f5f5f5;
+    padding: 0.2em;
+    margin-left: 0.3em;
+    margin-bottom: 0.2em;
+    margin-top: 0.1em;
+    width: auto;
+    font-size: 0.9em;
+    border-bottom: 0.1em solid #E65100;
+    display: inline-flex;
+    box-shadow:
+    0 4px 6px -6px #E65100;
+}
+div.searchlist2:hover{
+    background-color: #ffba5f;
+    padding: 0.2em;
+    margin-left: 0.3em;
+    margin-bottom: 0.2em;
+    margin-top: 0.1em;
+    width: auto;
+    font-size: 0.9em;
+    border-bottom: 0.1em solid #E65100;
+    display: inline-flex;
+    box-shadow:
+    0 4px 6px -6px #E65100;
+}
+.divinfo{
+    margin: auto;
+    margin-top: 0;
+    line-height: 1.3em;
+}
+::-webkit-scrollbar {
+      width: 0.4em;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 0.4em;
+}
+::-webkit-scrollbar-thumb {
+    background: #E65100; 
+    border-radius: 0.4em;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+}
+.cinfcoinname{
+    margin-left: 1em;
+    color: #E65100;
+}
+.cinffirstinfo{
+    margin: 1em;
+    display: inline-flex;
+}
+.cinffirstinfoimage{
+    display: block;
+    vertical-align: bottom;
+    width: 6em;
+    height: 6em;
+    margin: auto;
+}
+.cinffirstinfoimage img {
+    width: 100%;
+    height: 100%;
+}
+.cinffirstinfo_det{
+    vertical-align: middle;
+    #position: absolute;
+    #top: 50%;
+    margin: auto;
+    margin-left: 0.2em;
+    line-height: 1.2em;
+}
+.cinfsocial{
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+.cinfcontent{
+    margin-top: 2em;
+    display: inline-block;
+    border: 0.2em solid #202020;
+    border-radius: 0.7em;
+    background-color: #f5f5f5;
+    min-width: 8em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-right: 0.7em;
+    margin-left: 0.7em;
+    box-shadow:
+    -0.2em 0.2em 0.3em 0.1em #E65100;
+    text-align: center;
+}
+.cinfcontent table{
+    margin: 0 auto;
+    height: 2.5em;
+}
+.cinfcontent img{
+    height: 2em;
+}
+.cinfinfo{
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.cinfinfo_det{
+    background-color: #f5f5f5;
+    border: 0.05em solid #202020;
+    border-radius: 0.6em;
+    display: inline-flex;
+    width: 25%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2em;
+    min-width: 20em;
+    text-align: center;
+}
+.cinfinfo_det table{
+    min-height: 15em;
+    width: 100%;
+    border-collapse: collapse;
+    margin-right: 0.2em;
+    margin-left: 0.2em;
+}
+.cinfinfo_tr{
+    margin-bottom: 0.2em;
+    box-shadow:
+    0 0.3em 0.2em -0.2em #E65100;
+}
+.cinftd1{
+    text-align: left;
+}
+.cinftd2{
+    text-align: right;
+}
+.cinftdpos{
+    color: #37fd12;
+    text-align: right;
+}
+.cinftdneg{
+    color: #fc0003;
+    text-align: right;
+}
+.cinftdnull{
+    color: black;
+    text-align: right;
+}
+.cinfdivtradingview{
+    margin-left: 3%;
+    margin-right: 3%;
+    height: 37em;
+    padding-bottom: 2em;
+}
+.portbody{
+    min-height: 41em;
+}
+.portdivaddbut{
+    margin-top: 1.1em;
+    margin-bottom: 1.1em;
+    text-align: center;
+}
+.portaddbut{
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 0.6em;
+    background-color: #74b72e;
+    color: white;
+    padding: 0.4em 0.8em;
+    border: none;
+    cursor: pointer;
+}
+button:hover{background-color: #74b72e;}
+button:active{background-color: #aef359;}
+.adcbackdrop{
+    width: 100%;
+    min-height: 35em;
+    z-index: 4;
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+}
+.adcmain{
+    padding: 1em;
+    border-radius: 1em;
+    min-height: 31em;
+    width: 60%;
+    min-width: 15em;
+    max-width: 30em;
+    margin: 0 auto;
+    margin-top: 5em;
+    margin-bottom: 10em;
+    text-align: center;
+    background: white;
+    position: relative;
+}
+.adcmain h3{
+    color: #E65100;
+    margin-bottom: 0.5em;
+}
+.addsearchmain{
+    margin-top: 10em;
+    text-align: center;
+    width: 33%;
+    display: table-cell;
+    margin-right: 1em;
+    line-height: 2em;
+}
+.addsearchinner{
+    text-align: center;
+}
+.addsearchinner2{
+    text-align: center;
+    line-height: 2em;
+    margin-top: 0.4em;
+    margin-right: 1em;
+}
+.addsearchbar{
+    background-color: lightgray;
+    border-radius: 0.7em;
+    border-color: gray;
+    width: 56%;
+    min-width: 14em;
+    color: #202020;
+    margin-bottom: 0.1em;
+    border: none;
+    height: 2.3em;
+    outline: none;
+    padding-left: 0.7em;
+}
+.addsearchbar:focus{
+    background-color: lightgray;
+    border-radius: 0.7em;
+    border-color: gray;
+    width: 56%;
+    min-width: 14em;
+    color: #202020;
+    margin-bottom: 0.1em;
+    border: none;
+    height: 2.3em;
+    outline: none;
+    padding-left: 0.7em;
+}
+.addsearchlist{
+    background-color: #f5f5f5;
+    max-height: 20em;
+    width: auto;
+    max-width: 17.2em;
+    overflow-y: auto;
+    border-radius: 0.4em;
+    font-size: 1em;
+    box-shadow:
+    0.2em 0.2em 0.3em 0.1em #202020;
+    text-align: left;
+    z-index: 3;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 0.2em;
+}
+.addsearchlist2{
+    background-color: #f5f5f5;
+    padding: 0.2em;
+    margin-left: 0.3em;
+    margin-bottom: 0.2em;
+    margin-top: 0.1em;
+    width: auto;
+    font-size: 0.9em;
+    border-bottom: 0.1em solid #E65100;
+    display: inline-flex;
+    box-shadow:
+    0 4px 6px -6px #E65100;
+    cursor: pointer;
+}
+div.addsearchlist2:hover{
+    background-color: #ffba5f;
+    padding: 0.2em;
+    margin-left: 0.3em;
+    margin-bottom: 0.2em;
+    margin-top: 0.1em;
+    width: auto;
+    font-size: 0.9em;
+    border-bottom: 0.1em solid #E65100;
+    display: inline-flex;
+    box-shadow:
+    0 4px 6px -6px #E65100;
+    cursor: pointer;
+}
+.adddivinfo{
+    margin: auto;
+    margin-top: 0;
+    line-height: 1.3em;
+}
+.adcselcmain{
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 2%;
+    text-align: left;
+    z-index: 1;
+    border-top: solid lightgray 0.2em;
+    width: 93%;
+    min-height: 4em;
+}
+.adcselccoin{
+    margin-top: 0.5em;
+    margin-left: 0.4em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    display: inline-block;
+    border: none;
+    border-radius: 0.7em;
+    background-color: lightgray;
+    min-width: 8em;
+    text-align: center;
+    font-size: 0.8em;
+}
+.adcselccoin table{
+    margin: 0 auto;
+    height: 2em;
+    display: inline;
+}
+.adcselccoin img{
+    height: 1.5em;
+    margin-top: 0.3em;
+}
+.adcselcoinright{
+    margin-bottom: 0.5em;
+    margin-top: 0;
+    text-align: right;
+    display: inline-block;
+}
+.adcselcoinmain{
+    max-height: 20em;
+    overflow-y: auto;
+    border-radius: 0.4em;
+    font-size: 1em;
+    text-align: left;
+    z-index: 3;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 0.2em;
+}
+.adcselcoinlist{
+    background-color: lightgray;
+    padding: 0.2em;
+    margin-left: 0.3em;
+    margin-bottom: 0.2em;
+    margin-top: 0.1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    width: auto;
+    font-size: 0.9em;
+    display: inline-flex;
+    border-radius: 0.4em;
+}
+.adcselcoininfo{
+    margin: auto;
+    margin-top: 0.12em;
+    line-height: 1.3em;
+}
+.adcselcoincross{
+    margin: auto;
+    line-height: 1.3em;
+    cursor: pointer;
+    border-radius: 0.3em;
+    padding: 0.2em;
+}
+div.adcselcoincross:hover{
+    background-color: #ffba5f;
+    margin: auto;
+    line-height: 1.3em;
+    cursor: pointer;
+    border-radius: 0.3em;
+    padding: 0.2em;
+}
+.adcaddtolocbutton{
+    display: table;
+    margin: 0 auto;
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 0.6em;
+    background-color: #74b72e;
+    color: white;
+    padding: 0.4em 0.8em;
+    border: none;
+    cursor: pointer;
+}
+.portholdingbutton{
+    display: table;
+    margin: 0 auto;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 0.6em;
+    background-color: #74b72e;
+    color: white;
+    padding: 0.4em 0.8em;
+    border: none;
+    cursor: pointer;
+}
+.porteditbuttons{
+    float: right;
+    margin: 0 auto;
+    padding-top: 0.5em;
+    padding-bottom: auto;
+    padding-left: 0;
+    padding-right: 0.4em;
+    cursor: pointer;
+    height: 2em;
+    line-height: 2em;
+}
+.tcoinsafteronecedit{
+    text-align: left;
+    display: inline;
+    flex-grow: 1;
+    width: 5%;
+}
+.theaderafteronecedit{
+    text-align: left;
+    display: inline;
+    flex-grow: 1;
+    width: 5%;
+    margin-top: 0.2em;
+    cursor: pointer;
+}
+.adhbackdrop{
+    width: 100%;
+    min-height: 51em;
+    z-index: 4;
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+}
+.adhmain{
+    padding: 1em;
+    border-radius: 1em;
+    min-height: 12em;
+    width: 50%;
+    min-width: 15em;
+    max-width: 30em;
+    margin: 0 auto;
+    margin-top: 5em;
+    margin-bottom: 10em;
+    text-align: center;
+    background: white;
+    position: relative;
+}
+.adhmain h3{
+    color: #E65100;
+    margin-bottom: 0.5em;
+}
+.editform{
+    height: auto;
+    flex-direction: row, column;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+.editlabel{
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+    color: gray;
+    font-weight: bold;
+    display: block;
+}
+.editinput{
+    height: 2.4em;
+    line-height: 1.5em;
+    width: 12em;
+    font-weight: bold;
+    color: #555;
+    background-color: #d3d3d3;
+    border-radius: 0.6em;
+    border: none;
+    font-size: 1em;
+    padding-left: 0.6em;
+}
+.editsubmit{
+    color: white;
+    background-color: #aef359;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0.3em;
+    cursor: pointer;
+    border: none;
+    margin-left: 0.3em;
+    border-radius: 0.2em;
+}
+.editsubmit:hover{
+    color: white;
+    background-color: #74b72e;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0.3em;
+    cursor: pointer;
+    border: none;
+    margin-left: 0.3em;
+}
+.delbackdrop{
+    width: 100%;
+    min-height: 51em;
+    z-index: 4;
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+}
+.delmain{
+    padding: 1em;
+    border-radius: 1em;
+    min-height: 10em;
+    width: 50%;
+    min-width: 15em;
+    max-width: 30em;
+    margin: 0 auto;
+    margin-top: 5em;
+    margin-bottom: 10em;
+    text-align: center;
+    background: white;
+    position: relative;
+}
+.deletelabel{
+    margin-top: 1.2em;
+    margin-bottom: 2.5em;
+    color: gray;
+    font-weight: bold;
+    display: block;
+}
+.deletesubmit{
+    color: white;
+    background-color: #aef359;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0.3em;
+    cursor: pointer;
+    border: none;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: 0.2em;
+}
+.deletesubmit:hover{
+    color: white;
+    background-color: #74b72e;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0.3em;
+    cursor: pointer;
+    border: none;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: 0.2em;
+}
+.balbackdrop{
+    width: 30%;
+    height: 7em;
+    z-index: 4;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+.balmain{
+    padding: 0.3em;
+    border-radius: 0.5em;
+    width: 8.5em;
+    height: 30%;
+    margin: 0 auto;
+    margin-top: 4em;
+    margin-bottom: 10em;
+    margin-left: 1.5em;
+    text-align: center;
+    background: white;
+    position: relative;
+    -moz-box-shadow: 0 0 0.8em lightgray;
+    -webkit-box-shadow: 0 0 0.8em lightgray;
+    box-shadow: 0 0 0.8em lightgray;
+}
+.balmain h4{
+    color: #E65100;
+}
+.cinfinfo_det_main{
+    margin-top: 2em;
+}
+.detcinfinfoshow{
+    font-size: 0.8em;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in;
+    max-height: 65em;
+}
+.detcinfinfohide{
+    font-size: 0.8em;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-out;
 }

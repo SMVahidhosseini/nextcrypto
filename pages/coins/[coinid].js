@@ -25,15 +25,28 @@ export const coinsContext2 = createContext()
 const Details = ({coin, time2, options}) => {
 	const [coinStore, setcoinStore] = useState([]);
 	const [coinStore2, setcoinStore2] = useState([]);
+	const [coins2, setcoins2] = useState([]);
 
-	for (var i = 1; i < 4; i++) {
-		const { data: coinStorefiller, setData: setcoinStorefiller, error, isPending } = useFetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=${i}&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y`);
-		useEffect(() => {
-			if (coinStorefiller != null && coinStorefiller != []) {
-				setcoinStore2([...coinStore2, ...coinStorefiller])
+	// CoinStore______________________________________________________________________________________________
+	async function fillCoinStore(num, page) {
+		try{
+			for (var i = 1; i <= page; i++) {
+				const res = (await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${num}&page=${i}&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y`));
+				let coins = await res.json();
+				await setcoins2(coins);
 			}
-		}, [coinStorefiller]);
+		} catch(err) {
+			console.error(err);
+		}
 	}
+
+	useEffect(() => {
+		fillCoinStore(250, 3);
+	}, []);
+
+	useEffect(() => {
+		setcoinStore2([...coinStore2, ...coins2]);
+	}, [coins2]);
 
 	useEffect(() => {
 		coinStore2.sort((a, b) => {
@@ -41,6 +54,7 @@ const Details = ({coin, time2, options}) => {
 		});
 		setcoinStore([ ...coinStore2]);
 	}, [coinStore2]);
+	// CoinStore______________________________________________________________________________________________
 
 	return(
 		<coinsContext2.Provider value={coinStore}>
@@ -65,7 +79,7 @@ const Details = ({coin, time2, options}) => {
 
 				<div className="cinfsocial">
 					<div className="cinfcontent">
-						<a href={coin.links.homepage[0]} target="_blank">
+						<a href={coin.links.homepage[0]} target="_blank" rel="noreferrer">
 							<table>
 								<tbody>
 									<tr>
@@ -79,7 +93,7 @@ const Details = ({coin, time2, options}) => {
 						</a>
 					</div>
 					<div className="cinfcontent">
-						<a href={'https://twitter.com/' + coin.links.twitter_screen_name} target="_blank" >
+						<a href={'https://twitter.com/' + coin.links.twitter_screen_name} target="_blank" rel="noreferrer" >
 							<table>
 								<tbody>
 									<tr>
@@ -93,7 +107,7 @@ const Details = ({coin, time2, options}) => {
 						</a>
 					</div>
 					<div className="cinfcontent">
-						<a href={'https://t.me/' + coin.links.telegram_channel_identifier} target="_blank" >
+						<a href={'https://t.me/' + coin.links.telegram_channel_identifier} target="_blank" rel="noreferrer" >
 							<table>
 								<tbody>
 									<tr>
@@ -107,7 +121,7 @@ const Details = ({coin, time2, options}) => {
 						</a>
 					</div>
 					<div className="cinfcontent">
-						<a href={coin.links.subreddit_url} target="_blank" >
+						<a href={coin.links.subreddit_url} target="_blank" rel="noreferrer" >
 							<table>
 								<tbody>
 									<tr>
@@ -121,7 +135,7 @@ const Details = ({coin, time2, options}) => {
 						</a>
 					</div>
 					<div className="cinfcontent">
-						<a href={coin.links.chat_url[1]} target="_blank" >
+						<a href={coin.links.chat_url[1]} target="_blank" rel="noreferrer" >
 							<table>
 								<tbody>
 									<tr>
@@ -135,7 +149,7 @@ const Details = ({coin, time2, options}) => {
 						</a>
 					</div>
 					<div className="cinfcontent">
-						<a href={coin.links.blockchain_site[0]} target="_blank" >
+						<a href={coin.links.blockchain_site[0]} target="_blank" rel="noreferrer" >
 							<table>
 								<tbody>
 									<tr>

@@ -29,15 +29,28 @@ export default function Home({pageCoins}) {
 
 	const [coinStore, setcoinStore] = useState([]);
 	const [coinStore2, setcoinStore2] = useState([]);
+	const [coins2, setcoins2] = useState([]);
 
-	for (var i = 1; i < 4; i++) {
-		const { data: coinStorefiller, setData: setcoinStorefiller, error, isPending } = useFetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=${i}&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y`);
-		useEffect(() => {
-			if (coinStorefiller != null && coinStorefiller != []) {
-				setcoinStore2([...coinStore2, ...coinStorefiller])
+	// CoinStore______________________________________________________________________________________________
+	async function fillCoinStore(num, page) {
+		try{
+			for (var i = 1; i <= page; i++) {
+				const res = (await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${num}&page=${i}&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y`));
+				let coins = await res.json();
+				await setcoins2(coins);
 			}
-		}, [coinStorefiller]);
+		} catch(err) {
+			console.error(err);
+		}
 	}
+
+	useEffect(() => {
+		fillCoinStore(250, 3);
+	}, []);
+
+	useEffect(() => {
+		setcoinStore2([...coinStore2, ...coins2]);
+	}, [coins2]);
 
 	useEffect(() => {
 		coinStore2.sort((a, b) => {
@@ -45,6 +58,7 @@ export default function Home({pageCoins}) {
 		});
 		setcoinStore([ ...coinStore2]);
 	}, [coinStore2]);
+	// CoinStore______________________________________________________________________________________________
 
 	return(
 		<coinsContext.Provider value={coinStore}>

@@ -4,22 +4,26 @@ import Searchbar from './Searchbar'
 
 const Items = ({activeItem, setActiveItem}) => {
 	const tabChange = (e) => {
-		setActiveItem(e.target.innerText);
+		setActiveItem(e);
 	}
 
 	return(
 		<div className="tabs">
 			<div className="tabsul">
-				<li className="tabsli" onClick={tabChange}>
-					<div className={activeItem=='Home' ? 'tabsactive' : 'tabsdiv'}>
-						<Link href="/"><a>Home</a></Link>
-					</div>
-				</li>
-				<li className="tabsli" onClick={tabChange}>
-					<div className={activeItem=='Portfolio' ? 'tabsactive' : 'tabsdiv'}>
-						<Link href="/portfolio"><a>Portfolio</a></Link>
-					</div>
-				</li>
+				<Link href="/">
+					<a>
+						<li className="tabsli" onClick={() => tabChange('Home')}>
+							<div className={activeItem=='Home' ? 'tabsactive' : 'tabsdiv'}>Home</div>
+						</li>
+					</a>
+				</Link>
+				<Link href="/portfolio">
+					<a>
+						<li className="tabsli" onClick={() => tabChange('Portfolio')}>
+							<div className={activeItem=='Portfolio' ? 'tabsactive' : 'tabsdiv'}>Portfolio</div>
+						</li>
+					</a>
+				</Link>
 			</div>
 			<Searchbar />
 		</div>

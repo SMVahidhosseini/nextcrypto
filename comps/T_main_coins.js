@@ -11,11 +11,6 @@ const T_main_coins = ({pageCoins: pageCoins2, pageCoinNo, pageNo, descendingorde
 	const [time2, settime2] = useState('');
 
 	useEffect(() => {
-		if (pageCoins3 !== null) {
-			pageCoins3.map((coin) => {
-				console.log(coin.price_change_percentage_1y_in_currency);
-			})
-		}
 		setpageCoins(pageCoins3);
 	}, [pageCoins3]);
 

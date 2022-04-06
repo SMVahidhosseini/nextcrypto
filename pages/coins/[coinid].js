@@ -12,8 +12,10 @@ export const getServerSideProps = async (context) => {
 		const time = new Date((coin.market_data.ath_date.usd).split('T')[0]);
 		const time2 = await time.toDateString();
 		const options =  await { symbol: `BINANCE:${coin.symbol}USDT`, theme: "light", autosize: true, locale: "en", timezone: "Asia/Tehran", interval: "60", withdateranges: true };
+		const res2 = await fetch('https://api.coingecko.com/api/v3/search?query=');
+		const allcoins = await res2.json();
 		return {
-			props: { coin, time2, options }
+			props: { coin, time2, options, allcoins }
 		}
 	} catch(err) {
 		console.error(err);
@@ -22,38 +24,13 @@ export const getServerSideProps = async (context) => {
 
 export const coinsContext2 = createContext()
 
-const Details = ({coin, time2, options}) => {
+const Details = ({coin, time2, options, allcoins}) => {
 	const [coinStore, setcoinStore] = useState([]);
-	const [coinStore2, setcoinStore2] = useState([]);
-	const [coins2, setcoins2] = useState([]);
 
 	// CoinStore______________________________________________________________________________________________
-	async function fillCoinStore(num, page) {
-		try{
-			for (var i = 1; i <= page; i++) {
-				const res = (await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${num}&page=${i}&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y`));
-				let coins = await res.json();
-				await setcoins2(coins);
-			}
-		} catch(err) {
-			console.error(err);
-		}
-	}
-
 	useEffect(() => {
-		fillCoinStore(250, 3);
-	}, []);
-
-	useEffect(() => {
-		setcoinStore2([...coinStore2, ...coins2]);
-	}, [coins2]);
-
-	useEffect(() => {
-		coinStore2.sort((a, b) => {
-			return (a['market_cap_rank'] - b['market_cap_rank']);
-		});
-		setcoinStore([ ...coinStore2]);
-	}, [coinStore2]);
+		setcoinStore(allcoins.coins);
+	}, [allcoins]);
 	// CoinStore______________________________________________________________________________________________
 
 	return(

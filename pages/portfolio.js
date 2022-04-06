@@ -8,13 +8,24 @@ import Edit from '../comps/Edit'
 import Delete from '../comps/Delete'
 import Balance from '../comps/Balance'
 
+export const getServerSideProps = async () => {
+	try{
+		const res2 = await fetch('https://api.coingecko.com/api/v3/search?query=');
+		const allcoins = await res2.json();
+		return {
+			props: { allcoins }
+		}
+	} catch(err) {
+		console.error(err);
+	}
+}
+
 export const coinsContext3 = createContext()
 
-const Portfolio = () => {
+const Portfolio = ({allcoins}) => {
 	const [activeItem, setActiveItem] = useState('Portfolio');
 	const [showaddcoin, setshowaddcoin] = useState(false);
 	const [coinStore, setcoinStore] = useState([]);
-	const [coinStore2, setcoinStore2] = useState([]);
 	const [portfolio, setportfolio] = useState([]);
 	const [descendingorder, setdescendingorder] = useState(true);
 	const [sortItem, setsortItem] = useState('holding');
@@ -26,35 +37,11 @@ const Portfolio = () => {
 	const [showdelete, setshowdelete] = useState(false);
 	const [deletecoin, setdeletecoin] = useState(null);
 	const [balance, setbalance] = useState(0);
-	const [coins2, setcoins2] = useState([]);
 
 	// CoinStore______________________________________________________________________________________________
-	async function fillCoinStore(num, page) {
-		try{
-			for (var i = 1; i <= page; i++) {
-				const res = (await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${num}&page=${i}&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y`));
-				let coins = await res.json();
-				await setcoins2(coins);
-			}
-		} catch(err) {
-			console.error(err);
-		}
-	}
-
 	useEffect(() => {
-		fillCoinStore(250, 3);
-	}, []);
-
-	useEffect(() => {
-		setcoinStore2([...coinStore2, ...coins2]);
-	}, [coins2]);
-
-	useEffect(() => {
-		coinStore2.sort((a, b) => {
-			return (a['market_cap_rank'] - b['market_cap_rank']);
-		});
-		setcoinStore([ ...coinStore2]);
-	}, [coinStore2]);
+		setcoinStore(allcoins.coins);
+	}, [allcoins]);
 	// CoinStore______________________________________________________________________________________________
 
 	// Localstorage___________________________________________________________________________________________

@@ -8,21 +8,9 @@ import Edit from '../comps/Edit'
 import Delete from '../comps/Delete'
 import Balance from '../comps/Balance'
 
-export const getServerSideProps = async () => {
-	try{
-		const res2 = await fetch('https://api.coingecko.com/api/v3/search?query=');
-		const allcoins = await res2.json();
-		return {
-			props: { allcoins }
-		}
-	} catch(err) {
-		console.error(err);
-	}
-}
-
 export const coinsContext3 = createContext()
 
-const Portfolio = ({allcoins}) => {
+const Portfolio = () => {
 	const [activeItem, setActiveItem] = useState('Portfolio');
 	const [showaddcoin, setshowaddcoin] = useState(false);
 	const [coinStore, setcoinStore] = useState([]);
@@ -37,10 +25,25 @@ const Portfolio = ({allcoins}) => {
 	const [showdelete, setshowdelete] = useState(false);
 	const [deletecoin, setdeletecoin] = useState(null);
 	const [balance, setbalance] = useState(0);
+	const [allcoins, setallcoins] = useState([]);
 
 	// CoinStore______________________________________________________________________________________________
+	async function fillCoinStore() {
+		try{
+			const res2 = await fetch('https://api.coingecko.com/api/v3/search?query=');
+			const allcoins2 = await res2.json();
+			setallcoins(allcoins2.coins);
+		} catch(err) {
+			console.error(err);
+		}
+	}
+
 	useEffect(() => {
-		setcoinStore(allcoins.coins);
+		fillCoinStore();
+	}, []);
+
+	useEffect(() => {
+		setcoinStore(allcoins);
 	}, [allcoins]);
 	// CoinStore______________________________________________________________________________________________
 

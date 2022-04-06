@@ -12,10 +12,8 @@ export const getServerSideProps = async (context) => {
 		const time = new Date((coin.market_data.ath_date.usd).split('T')[0]);
 		const time2 = await time.toDateString();
 		const options =  await { symbol: `BINANCE:${coin.symbol}USDT`, theme: "light", autosize: true, locale: "en", timezone: "Asia/Tehran", interval: "60", withdateranges: true };
-		const res2 = await fetch('https://api.coingecko.com/api/v3/search?query=');
-		const allcoins = await res2.json();
 		return {
-			props: { coin, time2, options, allcoins }
+			props: { coin, time2, options }
 		}
 	} catch(err) {
 		console.error(err);
@@ -24,12 +22,27 @@ export const getServerSideProps = async (context) => {
 
 export const coinsContext2 = createContext()
 
-const Details = ({coin, time2, options, allcoins}) => {
+const Details = ({coin, time2, options}) => {
 	const [coinStore, setcoinStore] = useState([]);
+	const [allcoins, setallcoins] = useState([]);
 
 	// CoinStore______________________________________________________________________________________________
+	async function fillCoinStore() {
+		try{
+			const res2 = await fetch('https://api.coingecko.com/api/v3/search?query=');
+			const allcoins2 = await res2.json();
+			setallcoins(allcoins2.coins);
+		} catch(err) {
+			console.error(err);
+		}
+	}
+
 	useEffect(() => {
-		setcoinStore(allcoins.coins);
+		fillCoinStore();
+	}, []);
+
+	useEffect(() => {
+		setcoinStore(allcoins);
 	}, [allcoins]);
 	// CoinStore______________________________________________________________________________________________
 

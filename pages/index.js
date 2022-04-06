@@ -7,10 +7,8 @@ export const getServerSideProps = async () => {
 	try{
 		const res = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y');
 		const data = await res.json();
-		const res2 = await fetch('https://api.coingecko.com/api/v3/search?query=');
-		const allcoins = await res2.json();
 		return {
-			props: { pageCoins: data, allcoins }
+			props: { pageCoins: data }
 		}
 	} catch(err) {
 		console.error(err);
@@ -19,7 +17,7 @@ export const getServerSideProps = async () => {
 
 export const coinsContext = createContext()
 
-export default function Home({pageCoins, allcoins}) {
+export default function Home({pageCoins}) {
 	const [coinperpageshow, setcoinperpageshow] = useState(true);
 	const [pageCoinNo, setPageCoinNo] = useState(50);
 	const [pageNo, setPageNo] = useState(1);
@@ -29,10 +27,25 @@ export default function Home({pageCoins, allcoins}) {
 	const [sortItem, setsortItem] = useState('market_cap_rank');
 	const [activeItem, setActiveItem] = useState('Home');
 	const [coinStore, setcoinStore] = useState([]);
+	const [allcoins, setallcoins] = useState([]);
 
 	// // CoinStore______________________________________________________________________________________________
+	async function fillCoinStore() {
+		try{
+			const res2 = await fetch('https://api.coingecko.com/api/v3/search?query=');
+			const allcoins2 = await res2.json();
+			setallcoins(allcoins2.coins);
+		} catch(err) {
+			console.error(err);
+		}
+	}
+
 	useEffect(() => {
-		setcoinStore(allcoins.coins);
+		fillCoinStore();
+	}, []);
+
+	useEffect(() => {
+		setcoinStore(allcoins);
 	}, [allcoins]);
 	// // CoinStore______________________________________________________________________________________________
 

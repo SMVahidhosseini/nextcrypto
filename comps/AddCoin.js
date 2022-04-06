@@ -66,7 +66,7 @@ const AddCoin = ({showaddcoin, setshowaddcoin, setportfolio, setsortItem}) => {
 						<div className="adcselcoinmain" >
 						{selcoins.map((coin) =>(
 							<div className="adcselcoinlist" key={coin.id} >
-								<img src={(coin.image).replace("large", "thumb")} width="20vw" height="20vw" />
+								{coin.thumb === 'missing_thumb.png' ? <span></span> : <img src={coin.thumb} width="20vw" height="20vw" />}
 								<div className="adcselcoininfo">&nbsp;{coin.name}</div>&nbsp;&nbsp;
 								<div className="adcselcoincross" onClick={() => handledelselcoin(coin.id)}>
 									<img src="/icons/cross.svg" width="12vw" height="12vw" />

@@ -69,15 +69,20 @@ const Portfolio = () => {
 	useEffect(() => {
 		setsortItem('balance');
 		if (fetchedport !== null && portfolio !== null) {
+			let bal_tot = 0;
 			portfolio.map((coin) => {
 				fetchedport.map((fetchedcoin) => {
 					if (coin.id === fetchedcoin.id) {
+						if (coin.holding !== 0) {
+							bal_tot = bal_tot + coin.holding * fetchedcoin.current_price;
+						}
 						let balance = {balance: (coin.holding * fetchedcoin.current_price)};
 						Object.assign(fetchedcoin, balance);
 						Object.assign(coin, fetchedcoin);
 					}
 				})
 			});
+			setbalance(bal_tot);
 			setportfolio3(portfolio);
 			localStorage.setItem('portfolio', JSON.stringify(portfolio));
 		}
@@ -92,7 +97,7 @@ const Portfolio = () => {
 
 	return(
 		<coinsContext3.Provider value={coinStore} >
-			<Balance portfolio={portfolio} balance={balance} setbalance={setbalance} fetchedport={fetchedport} />
+			<Balance balance={balance} />
 			<Delete showdelete={showdelete} setshowdelete={setshowdelete} deletecoin={deletecoin} portfolio={portfolio}
 				ids={ids} setids={setids} setportfolio={setportfolio} setsortItem={setsortItem} />
 			<Edit showedit={showedit} setshowedit={setshowedit} editcoin={editcoin} portfolio={portfolio} setportfolio3={setportfolio3}

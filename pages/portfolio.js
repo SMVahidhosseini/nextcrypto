@@ -72,6 +72,8 @@ const Portfolio = () => {
 			portfolio.map((coin) => {
 				fetchedport.map((fetchedcoin) => {
 					if (coin.id === fetchedcoin.id) {
+						let balance = {balance: (coin.holding * fetchedcoin.current_price)};
+						Object.assign(fetchedcoin, balance);
 						Object.assign(coin, fetchedcoin);
 					}
 				})
@@ -90,7 +92,7 @@ const Portfolio = () => {
 
 	return(
 		<coinsContext3.Provider value={coinStore} >
-			<Balance fetchedport={fetchedport} portfolio={portfolio} balance={balance} setbalance={setbalance} />
+			<Balance portfolio={portfolio} balance={balance} setbalance={setbalance} fetchedport={fetchedport} />
 			<Delete showdelete={showdelete} setshowdelete={setshowdelete} deletecoin={deletecoin} portfolio={portfolio}
 				ids={ids} setids={setids} setportfolio={setportfolio} setsortItem={setsortItem} />
 			<Edit showedit={showedit} setshowedit={setshowedit} editcoin={editcoin} portfolio={portfolio} setportfolio3={setportfolio3}

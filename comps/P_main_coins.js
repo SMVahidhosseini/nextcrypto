@@ -83,7 +83,7 @@ const P_main_coins = ({portfolio: portfolio2, portfolio3, ids, setids, setportfo
 									<table>
 										<tbody>
 											<tr>
-												<td rowSpan="2" className="tcoinsbreaked_logo"><img src={(coin.image).replace("large", "thumb")} width="30vw" height="30vw" /></td>
+												<td rowSpan="2" className="tcoinsbreaked_logo">{coin.thumb === 'missing_thumb.png' ? <span></span> : <img src={coin.thumb} width="30vw" height="30vw" />}</td>
 												<td className="tcoinsbreaked_symbol">{coin.symbol}</td>
 											</tr>
 											<tr>

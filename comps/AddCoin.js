@@ -31,13 +31,13 @@ const AddCoin = ({showaddcoin, setshowaddcoin, setportfolio, setsortItem}) => {
 		const portfolio = JSON.parse(localStorage.getItem('portfolio'));
 		if (portfolio == null) {
 			if (selcoins.length > 0) {
-				localStorage.setItem('portfolio', JSON.stringify(selcoins.map(coin => ({ ...coin, holding: 0, balance: 0, balanceper: 0 }))));
+				localStorage.setItem('portfolio', JSON.stringify(selcoins.map(coin => ({ ...coin, holding: 0, balance: 0, balanceper: 0, ath: 0, ath_change_percentage: 0, price_change_percentage_1h_in_currency: 0, price_change_percentage_24h: 0, price_change_percentage_7d_in_currency: 0, price_change_percentage_30d_in_currency: 0, price_change_percentage_1y_in_currency: 0 }))));
 			}
 			const portfolio2 = JSON.parse(localStorage.getItem('portfolio'));
 		    setportfolio(portfolio2);
 		    setsortItem('market_cap_rank');
 		} else {
-			(selcoins.map(coin => ({ ...coin, holding: 0, balance: 0, balanceper: 0 }))).map(coin => {
+			(selcoins.map(coin => ({ ...coin, holding: 0, balance: 0, balanceper: 0, ath: 0, ath_change_percentage: 0, price_change_percentage_1h_in_currency: 0, price_change_percentage_24h: 0, price_change_percentage_7d_in_currency: 0, price_change_percentage_30d_in_currency: 0, price_change_percentage_1y_in_currency: 0 }))).map(coin => {
 				var index = portfolio.map(portcoin => {
 					return portcoin.id;
 				}).indexOf(coin.id);

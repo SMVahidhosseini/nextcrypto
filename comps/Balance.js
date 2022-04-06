@@ -3,17 +3,16 @@ import { useEffect } from 'react'
 
 const Balance = ({fetchedport, portfolio, balance, setbalance}) => {
 	useEffect(() => {
-		console.log(portfolio);
 		if (fetchedport !== null && portfolio !== null) {
 			let bal_tot = 0;
 			portfolio.map((coin) => {
 				if (coin.holding !== 0) {
-					bal_tot = bal_tot + coin.holding * coin.current_price;
+					bal_tot = bal_tot + coin.balance;
 				}
 			})
 			setbalance(bal_tot);
 		}
-	}, [fetchedport]);
+	}, [fetchedport, portfolio]);
 
 	return(
 		<div className="balbackdrop">

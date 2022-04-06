@@ -17,7 +17,7 @@ const SearchAdd = ({selcoins, setselcoins}) => {
 		if (coinStore != null) {
 			setresults(coinStore.filter(object => {
 				if (search != '') {
-					let arr = (object.symbol.indexOf(search.toLowerCase()) === 0 || object.id.indexOf(search.toLowerCase()) === 0);
+					let arr = ((object.symbol.toLowerCase()).indexOf(search.toLowerCase()) === 0 || (object.id.toLowerCase()).indexOf(search.toLowerCase()) === 0);
 					return arr;
 				}
 			}));
@@ -63,7 +63,7 @@ const SearchAdd = ({selcoins, setselcoins}) => {
 						{results.map((coin) =>(
 							<div key={coin.id} onClick={() => handleselcoin(coin.id)} >
 								<div className="addsearchlist2" >
-									<img src={(coin.image).replace("large", "thumb")} width="20vw" height="20vw" />
+									{coin.thumb === 'missing_thumb.png' ? <span></span> : <img src={coin.thumb} width="20vw" height="20vw" />}
 									<div className="adddivinfo">
 										&nbsp;{coin.name} <span style={{fontSize:'0.8em'}}><strong>({coin.symbol})</strong> &nbsp; #{coin.market_cap_rank} </span>
 									</div>

@@ -97,6 +97,24 @@
     z-index: 4;
     position: relative;
     min-height: 2em;
+    text-align: center;
+    font-family: serif;
+}
+.footersubdiv{
+    background: lightgray;
+    bottom: 0;
+    margin-bottom: 0;
+    z-index: 4;
+    position: relative;
+    text-align: center;
+    font-family: serif;
+}
+.footerName{
+    font-weight: bold;
+    font-family: serif;
+}
+.footersocial{
+    text-align: center;
 }
 .theadermain{
     min-height: 2em;

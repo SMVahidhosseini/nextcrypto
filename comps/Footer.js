@@ -18,6 +18,9 @@ const Footer = () => {
 			</div>
 			<div className="footersubdiv">
 				<div className="footersocial">
+					<a href='https://smvahidhosseini.github.io/Resume/' target="_blank" rel="noreferrer">
+						<img src="/icons/website.png" />
+					</a>
 					<a href='https://scholar.google.com/citations?user=roHaKVcAAAAJ&hl=en' target="_blank" rel="noreferrer">
 						<img src="/icons/scholar.svg" />
 					</a>

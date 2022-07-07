@@ -17,7 +17,7 @@ const T_main_h = ({pageCoins, setpageCoins, sortItem, setsortItem, descendingord
 			{/*__________________________________________________________________________________________________________________*/}
 			<div className="theadertable"> &nbsp;&nbsp;&nbsp;&nbsp; {theader[1]}</div>
 			{/*__________________________________________________________________________________________________________________*/}
-			<div className={sortItem == 'current_price' ? 'theaderactiveafteronec' : 'theaderafteronec'} onClick={() => {
+			<div className={sortItem == 'current_price' ? 'theaderpriceactive' : 'theaderprice'} onClick={() => {
 				setsortItem('current_price');
 				setdescendingorder(!descendingorder);
 			}} >
@@ -26,9 +26,9 @@ const T_main_h = ({pageCoins, setpageCoins, sortItem, setsortItem, descendingord
 			{sortItem == 'current_price' && !descendingorder && <>&#x25be;</>}
 			</div>
 			{/*__________________________________________________________________________________________________________________*/}
-			<div className="theaderpercentage">
+			<div className="theaderpercentage-home">
 				{/*__________________________________________________________________________________________________________________*/}
-				<div className={sortItem == 'price_change_percentage_1h_in_currency' ? 'theaderactivepercentcell' : 'theaderpercentcell'} onClick={() => {
+				<div className={sortItem == 'price_change_percentage_1h_in_currency' ? 'theaderactive-1h' : 'theader-1h'} onClick={() => {
 				setsortItem('price_change_percentage_1h_in_currency');
 				setdescendingorder(!descendingorder);
 				}} >
@@ -46,7 +46,7 @@ const T_main_h = ({pageCoins, setpageCoins, sortItem, setsortItem, descendingord
 				{sortItem == 'price_change_percentage_24h' && !descendingorder && <>&#x25be;</>}
 				</div>
 				{/*__________________________________________________________________________________________________________________*/}
-				<div className={sortItem == 'price_change_percentage_7d_in_currency' ? 'theaderactivepercentcell' : 'theaderpercentcell'} onClick={() => {
+				<div className={sortItem == 'price_change_percentage_7d_in_currency' ? 'theaderactive-7d' : 'theader-7d'} onClick={() => {
 				setsortItem('price_change_percentage_7d_in_currency');
 				setdescendingorder(!descendingorder);
 				}} >
@@ -57,7 +57,7 @@ const T_main_h = ({pageCoins, setpageCoins, sortItem, setsortItem, descendingord
 				{/*__________________________________________________________________________________________________________________*/}
 			</div>
 			{/*__________________________________________________________________________________________________________________*/}
-			<div className={sortItem == 'market_cap' ? 'theaderactiveafteronec' : 'theaderafteronec'} onClick={() => {
+			<div className={sortItem == 'market_cap' ? 'homemarketcapheaderactive' : 'homemarketcapheader'} onClick={() => {
 				setsortItem('market_cap');
 				setdescendingorder(!descendingorder);
 			}} >
@@ -66,7 +66,7 @@ const T_main_h = ({pageCoins, setpageCoins, sortItem, setsortItem, descendingord
 			{sortItem == 'market_cap' && !descendingorder && <>&#x25be;</>}
 			</div>
 			{/*__________________________________________________________________________________________________________________*/}
-			<div className={sortItem == 'total_volume' ? 'theaderactiveafteronec' : 'theaderafteronec'} onClick={() => {
+			<div className={sortItem == 'total_volume' ? 'theaderactive-vol' : 'theader-vol'} onClick={() => {
 				setsortItem('total_volume');
 				setdescendingorder(!descendingorder);
 			}} >

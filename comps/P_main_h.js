@@ -26,9 +26,9 @@ const P_main_h = ({pageCoins, setpageCoins, sortItem, setsortItem, descendingord
 			{sortItem == 'current_price' && !descendingorder && <>&#x25be;</>}
 			</div>
 			{/*__________________________________________________________________________________________________________________*/}
-			<div className="theaderpercentage">
+			<div className="pheaderpercentage">
 				{/*__________________________________________________________________________________________________________________*/}
-				<div className={sortItem == 'price_change_percentage_1h_in_currency' ? 'theaderactivepercentcell' : 'theaderpercentcell'} onClick={() => {
+				<div className={sortItem == 'price_change_percentage_1h_in_currency' ? 'pheaderactive-1h' : 'pheader-1h'} onClick={() => {
 				setsortItem('price_change_percentage_1h_in_currency');
 				setdescendingorder(!descendingorder);
 				}} >
@@ -46,7 +46,7 @@ const P_main_h = ({pageCoins, setpageCoins, sortItem, setsortItem, descendingord
 				{sortItem == 'price_change_percentage_24h' && !descendingorder && <>&#x25be;</>}
 				</div>
 				{/*__________________________________________________________________________________________________________________*/}
-				<div className={sortItem == 'price_change_percentage_7d_in_currency' ? 'theaderactivepercentcell' : 'theaderpercentcell'} onClick={() => {
+				<div className={sortItem == 'price_change_percentage_7d_in_currency' ? 'pheaderactive-7d' : 'pheader-7d'} onClick={() => {
 				setsortItem('price_change_percentage_7d_in_currency');
 				setdescendingorder(!descendingorder);
 				}} >
@@ -57,7 +57,7 @@ const P_main_h = ({pageCoins, setpageCoins, sortItem, setsortItem, descendingord
 				{/*__________________________________________________________________________________________________________________*/}
 			</div>
 			{/*__________________________________________________________________________________________________________________*/}
-			<div className={sortItem == 'market_cap' ? 'theaderactiveafteronec' : 'theaderafteronec'} onClick={() => {
+			<div className={sortItem == 'market_cap' ? 'pheaderactivecap' : 'pheadercap'} onClick={() => {
 				setsortItem('market_cap');
 				setdescendingorder(!descendingorder);
 			}} >
@@ -66,7 +66,7 @@ const P_main_h = ({pageCoins, setpageCoins, sortItem, setsortItem, descendingord
 			{sortItem == 'market_cap' && !descendingorder && <>&#x25be;</>}
 			</div>
 			{/*__________________________________________________________________________________________________________________*/}
-			<div className={sortItem == 'balance' ? 'theaderactiveafteronec' : 'theaderafteronec'} onClick={() => {
+			<div className={sortItem == 'balance' ? 'pheaderactivebal' : 'theaderbal'} onClick={() => {
 				setsortItem('balance');
 				setdescendingorder(!descendingorder);
 			}} >

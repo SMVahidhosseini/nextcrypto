@@ -71,14 +71,14 @@ const T_main_coins = ({pageCoins: pageCoins2, pageCoinNo, pageNo, descendingorde
 									</table>
 								</a>
 							</div>
-							<div className="tcoinsafteronec">{sigDigit(coin.current_price)}</div>
-							<div className="tcoinspercentage">
-								<div className="tcoinsafteronec" className={coin.price_change_percentage_1h_in_currency >= 0 ? 'tcoinspositive' : 'tcoinsnegative'}>{Number(coin.price_change_percentage_1h_in_currency).toFixed(1)}%</div>
+							<div className="tcoinsprice">{sigDigit(coin.current_price)}</div>
+							<div className="tcoinspercentage-homecoins">
+								<div className="tcoinsafteronec" className={coin.price_change_percentage_1h_in_currency >= 0 ? 'tcoinspositive-1h' : 'tcoinsnegative-1h'}>{Number(coin.price_change_percentage_1h_in_currency).toFixed(1)}%</div>
 								<div className="tcoinsafteronec" className={coin.price_change_percentage_24h >= 0 ? 'tcoinspositive' : 'tcoinsnegative'}>{Number(coin.price_change_percentage_24h).toFixed(1)}%</div>
-								<div className="tcoinsafteronec" className={coin.price_change_percentage_7d_in_currency >= 0 ? 'tcoinspositive' : 'tcoinsnegative'}>{Number(coin.price_change_percentage_7d_in_currency).toFixed(1)}%</div>
+								<div className="tcoinsafteronec" className={coin.price_change_percentage_7d_in_currency >= 0 ? 'tcoinspositive-7d' : 'tcoinsnegative-7d'}>{Number(coin.price_change_percentage_7d_in_currency).toFixed(1)}%</div>
 							</div>
-							<div className="tcoinsafteronec">{sigDigit(coin.market_cap)}</div>
-							<div className="tcoinsafteronec">{sigDigit(coin.total_volume)}</div>
+							<div className="homemarketcaptable">{sigDigit(coin.market_cap)}</div>
+							<div className="tcoins-vol">{sigDigit(coin.total_volume)}</div>
 						</div>
 
 						<div className={(showdetails && showdetailsid==coin.id) ? "detcinfinfoshow" : "detcinfinfohide"}>

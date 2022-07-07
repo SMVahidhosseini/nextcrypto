@@ -94,13 +94,13 @@ const P_main_coins = ({portfolio: portfolio2, portfolio3, ids, setids, setportfo
 								</a>
 							</div>
 							<div className="tcoinsafteronec">{sigDigit(coin.current_price)}</div>
-							<div className="tcoinspercentage">
-								<div className="tcoinsafteronec" className={coin.price_change_percentage_1h_in_currency >= 0 ? 'tcoinspositive' : 'tcoinsnegative'}>{Number(coin.price_change_percentage_1h_in_currency).toFixed(1)}%</div>
+							<div className="pcoinspercentage">
+								<div className="tcoinsafteronec" className={coin.price_change_percentage_1h_in_currency >= 0 ? 'pcoinspositive-1h' : 'pcoinsnegative-1h'}>{Number(coin.price_change_percentage_1h_in_currency).toFixed(1)}%</div>
 								<div className="tcoinsafteronec" className={coin.price_change_percentage_24h >= 0 ? 'tcoinspositive' : 'tcoinsnegative'}>{Number(coin.price_change_percentage_24h).toFixed(1)}%</div>
-								<div className="tcoinsafteronec" className={coin.price_change_percentage_7d_in_currency >= 0 ? 'tcoinspositive' : 'tcoinsnegative'}>{Number(coin.price_change_percentage_7d_in_currency).toFixed(1)}%</div>
+								<div className="tcoinsafteronec" className={coin.price_change_percentage_7d_in_currency >= 0 ? 'pcoinspositive-7d' : 'pcoinsnegative-7d'}>{Number(coin.price_change_percentage_7d_in_currency).toFixed(1)}%</div>
 							</div>
-							<div className="tcoinsafteronec">{sigDigit(coin.market_cap)}</div>
-							<div className="tcoinsafteronec">{sigDigit(coin.holding)} ({sigDigit(coin.balance)} $) </div>
+							<div className="pcoinscap">{sigDigit(coin.market_cap)}</div>
+							<div className="pcoinsbal">{sigDigit(coin.holding)} ({sigDigit(coin.balance)} $) </div>
 							<div className="tcoinsafteronecedit">
 								<img src="/icons/delete.svg" className="porteditbuttons" width="20vw" height="20vw" onClick={() => handleshowdelete(coin)} />
 								<img src="/icons/edit.svg" className="porteditbuttons" width="20vw" height="20vw" onClick={() => handleshowedit(coin)} />

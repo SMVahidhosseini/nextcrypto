@@ -93,7 +93,8 @@
 .footer{
     min-width: 400px;
     background: lightgray;
-    padding: 2.0em;
+    padding-top: 2.0em;
+    padding-bottom: 2.0em;
     bottom: 0;
     margin-bottom: 0;
     z-index: 4;
@@ -313,12 +314,11 @@
     position: relative;
 }
 .tabs2{
+    min-width: 400px;
     margin-top: 0.7em;
-    display: flex;
+    justify-content: space-between;
     height: 2em;
-    float: right;
     z-index: 3;
-    position: relative;
     text-align: right;
 }
 .tabsul{
@@ -645,11 +645,11 @@ div.searchlist2:hover{
     text-align: right;
 }
 .cinfdivtradingview{
-    margin-left: 3%;
-    margin-right: 3%;
+    margin-left: 10px;
+    margin-right: 10px;
     height: 37em;
     padding-bottom: 2em;
-    min-width: 400px;
+    min-width: 380px;
 }
 .portbody{
     min-width: 400px;
